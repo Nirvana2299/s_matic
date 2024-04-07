@@ -1,4 +1,6 @@
+import Navbar from '@/app/components/navbar';
 import products from '@/utils/productsData'
+import "../../app/globals.css";
 
 export async function getStaticPaths() {
     const paths = products.map((product) => ({
@@ -16,10 +18,13 @@ export async function getStaticProps({ params }) {
 
 export default function Page({ product }) {
     return (
+        <>
+        <Navbar />
         <div className="flex justify-center items-center h-full w-full">
             <h1>Product Details</h1>
             <p>ID: {product.id}</p>
             <p>Name: {product.name}</p>
         </div>
+        </>
     );
 }

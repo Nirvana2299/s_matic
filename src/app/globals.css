@@ -26,6 +26,10 @@
     rgb(var(--background-start-rgb));
 } */
 
+.product-background {
+  background-color: 'white';
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

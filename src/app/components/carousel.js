@@ -2,8 +2,6 @@
 import { Carousel, Typography, Button } from "@material-tailwind/react";
 import './../../app/globals.css'
 import Link from 'next/link'
-import { useRef } from 'react';
-import { useEffect } from "react";
 
 const carouselData = [
     {
@@ -39,10 +37,11 @@ export default function CarouselSlider() {
     return (
         <Carousel
         autoplay = {true}
+
            autoplayDelay={6000}
             transition={{ transition: { type: "spring", duration: 10.5 } }}
             loop={true}
-            className="">
+           >
             {
 
                 carouselData.map((c) =>

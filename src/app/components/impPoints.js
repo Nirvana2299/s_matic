@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import aboutData from '@/utils/aboutData'
 export default function ImpPoints() {
-    return <div className="md:text-center text-white md:text-start md:flex md:px-28 lg:px-44 xl:px-72 md:py-10 bg-white md:gap-4">
+    return <div className="md:text-center text-white md:text-start md:flex md:px-22 lg:px-32 xl:px-56 md:py-10 bg-white md:gap-4">
         <div className="text-center relative flex flex-col w-full md:w-80 p-8 gap-4 bg-blue-400 rounded-sm drop-shadow">
             <h2 className="text-lg">WHY CHOOSE US</h2>
             <p>Adverse environmental conditions, high rotational speed and pressure levels place demanding requirements on sealing technology employed in the process industry.</p>

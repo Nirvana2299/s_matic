@@ -34,14 +34,54 @@ export default function ProductCarousel() {
                     origin: 'auto',
                     perView: 3,
                     spacing: 52,
+                    size: 0.10,
+                },
+            },
+            '(min-width: 1035px)': {
+                slides: {
+                    origin: 'auto',
+                    perView: 3,
+                    spacing: 58,
+                    size: 0.10,
+                },
+            },
+            '(min-width: 1100px)': {
+                slides: {
+                    origin: 'auto',
+                    perView: 3,
+                    spacing: 95,
                     // size: 0.10,
+                },
+            },
+            '(min-width: 1200px)': {
+                slides: {
+                    origin: 'auto',
+                    perView: 4,
+                    spacing: 30,
+                    size: 0.10,
                 },
             },
             '(min-width: 1280px)': {
                 slides: {
                     origin: 'auto',
+                    perView: 4,
+                    spacing: 54,
+                    size: 0.10,
+                },
+            },
+            '(min-width: 1400px)': {
+                slides: {
+                    origin: 'auto',
+                    perView: 4,
+                    spacing: 64,
+                    size: 0.10,
+                },
+            },
+            '(min-width: 1460px)': {
+                slides: {
+                    origin: 'auto',
                     perView: 3,
-                    spacing: 1,
+                    spacing: 42,
                     size: 0.10,
                 },
             },
@@ -49,7 +89,7 @@ export default function ProductCarousel() {
                 slides: {
                     origin: 'auto',
                     perView: 4,
-                    spacing: 60,
+                    spacing: 32 ,
                     size: 0.10,
                 },
             },
@@ -113,7 +153,7 @@ export default function ProductCarousel() {
                 </div>
             </div>
             {loaded && instanceRef.current && (
-                <div className="mt-8 flex gap-4 lg:mt-0">
+                <div className="mt-8 mx-20 flex gap-4 lg:mt-12  flex justify-around items-center">
                     <button
                         onClick={(e) =>
                             e.stopPropagation() || instanceRef.current?.prev()
@@ -121,14 +161,14 @@ export default function ProductCarousel() {
                         disabled={currentSlide === 0}
                         aria-label="Previous slide"
                         id="keen-slider-previous"
-                        className="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+                        className="rounded-full border bg-white p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
                             strokeWidth="1.5"
-                            stroke="currentColor"
+                            stroke="black"
                             className="size-5 rtl:rotate-180"
                         >
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -145,12 +185,12 @@ export default function ProductCarousel() {
                         // }
                         aria-label="Next slide"
                         id="keen-slider-next"
-                        className="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+                        className="rounded-full border bg-white p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
                     >
                         <svg
                             className="size-5 rtl:rotate-180"
                             fill="none"
-                            stroke="currentColor"
+                            stroke="black"
                             viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg"
                         >

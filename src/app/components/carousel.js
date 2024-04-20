@@ -35,53 +35,55 @@ const carouselData = [
 export default function CarouselSlider() {
 
     return (
-        <Carousel
-        autoplay = {true}
+        <section id="carousel">
+            <Carousel
+                autoplay={true}
 
-           autoplayDelay={6000}
-            transition={{ transition: { type: "spring", duration: 10.5 } }}
-            loop={true}
-           >
-            {
+                autoplayDelay={6000}
+                transition={{ transition: { type: "spring", duration: 10.5 } }}
+                loop={true}
+            >
+                {
 
-                carouselData.map((c) =>
+                    carouselData.map((c) =>
 
-                    <div key={c.id} className="relative h-[1000px] max-h-96 w-full overflow-hidden">
-                        <img
-                            src={c.imageUrl}
-                            alt={`image ${c.id}`}
-                            className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 grid  w-full place-items-center bg-black/75">
-                            <div className="w-3/4 text-start md:w-2/4">
-                                <Typography
-                                    variant="h1"
-                                    color="white"
-                                    className="mb-4 text-3xl md:text-4xl lg:text-5xl"
-                                >
-                                    {c.title}
-                                </Typography>
-                                <Typography
-                                    variant="lead"
-                                    color="white"
-                                    className="mb-4 md:mb-12 opacity-80"
-                                >
-                                    {c.discription}
-                                </Typography>
-                                <div className="flex justify-start gap-1 md:gap-2">
-                                    <Link href={'about'}>
-                                        <Button size="lg" color="white">
-                                            About Us
-                                        </Button>
-                                    </Link>
-                                    {/* <Button size="lg" color="white" variant="text">
+                        <div key={c.id} className="relative h-[1000px] max-h-96 w-full overflow-hidden">
+                            <img
+                                src={c.imageUrl}
+                                alt={`image ${c.id}`}
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 grid  w-full place-items-center bg-black/75">
+                                <div className="w-3/4 text-start md:w-2/4">
+                                    <Typography
+                                        variant="h1"
+                                        color="white"
+                                        className="mb-4 text-3xl md:text-4xl lg:text-5xl"
+                                    >
+                                        {c.title}
+                                    </Typography>
+                                    <Typography
+                                        variant="lead"
+                                        color="white"
+                                        className="mb-4 md:mb-12 opacity-80"
+                                    >
+                                        {c.discription}
+                                    </Typography>
+                                    <div className="flex justify-start gap-1 md:gap-2">
+                                        <Link href={'about'}>
+                                            <Button size="lg" color="white">
+                                                About Us
+                                            </Button>
+                                        </Link>
+                                        {/* <Button size="lg" color="white" variant="text">
                                 Gallery
                             </Button> */}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                )}
-        </Carousel>
+                    )}
+            </Carousel>
+        </section>
     );
 }

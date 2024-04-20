@@ -4,6 +4,7 @@ import CarouselSlider from "./components/carousel";
 import ImpPoints from "./components/impPoints";
 import Intro from "./components/intro";
 import ProductCarousel from "./components/productCarousel";
+import WhatWeDoSection from "./components/whatWeDoSection";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <Intro />
         <ImpPoints />
         <ProductCarousel />
+        <WhatWeDoSection />
         <h1 className="text-[#1da1f2]" >Home Page</h1>
       </main>
     </>

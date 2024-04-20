@@ -205,7 +205,5 @@ export default function ProductCarousel() {
                 </div>
             )}
         </section>
-
     )
-
 }

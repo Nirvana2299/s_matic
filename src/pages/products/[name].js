@@ -32,16 +32,17 @@ export default function Page({ product }) {
                             <p className='text-3xl lg:text-4xl'>{product.name}</p>
                         </div>
                         <Image className='hidden md:block' alt={product.imageAltText} src={product.image} width={250} height={250} />
-
                     </div>
                 </section>
                 <section className='flex flex-col md:flex-row md:justify-between w-full lg:w-[1000px] mx-auto my-4 md:my-8 lg:my-10'>
                     <ProductAccordian productProp={{ name: product.name, }} />
                     <ProductDescription product={{ name: product.name, productsDescription: product.productsDescription }} />
-                    <Image className='p-4 md:p-2 lg:p-0' src={product.image} width={0}
-                        height={0}
-                        sizes="100vw"
-                        style={{ width: '90%', height: '90%' }} />
+                    <Image className='p-4 md:p-2 lg:p-0' src={product.image} width={400}
+                        height={300}
+                        // sizes="100vw"
+                        // style={{ width: '90%', height: '90%' }} 
+
+                        />
                 </section>
             </main>
             <Footer />

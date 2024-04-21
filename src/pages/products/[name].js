@@ -4,6 +4,7 @@ import Image from 'next/image';
 import "../../app/globals.css";
 import ProductAccordian from '@/app/components/productComponents.js/productAccordian';
 import Footer from '@/app/components/footer';
+import ProductDescription from '@/app/components/productComponents.js/productDescription';
 
 export async function getStaticPaths() {
     const paths = products.map((product) => ({
@@ -34,12 +35,14 @@ export default function Page({ product }) {
 
                     </div>
                 </section>
-                <section className='flex'>
-                    <ProductAccordian />
+                <section className='flex flex-col md:flex-row md:justify-between w-full lg:w-[1000px] mx-auto my-4 md:my-8 lg:my-10'>
+                    <ProductAccordian productProp={{ name: product.name, }} />
+                    <ProductDescription product={{ name: product.name, productsDescription: product.productsDescription }} />
+                    <Image className='p-4 md:p-2 lg:p-0' src={product.image} width={0}
+                        height={0}
+                        sizes="100vw"
+                        style={{ width: '90%', height: '90%' }} />
                 </section>
-                <h1>Product Details</h1>
-                <p>ID: {product.id}</p>
-
             </main>
             <Footer />
         </>

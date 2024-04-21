@@ -12,7 +12,7 @@ import Link from 'next/link';
 const Accordion = styled((props) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
-    border: `1px solid ${theme.palette.divider}`,
+    // border: `1px solid ${theme.palette.divider}`,
     '&:not(:last-child)': {
         borderBottom: 0,
     },
@@ -28,10 +28,12 @@ const AccordionSummary = styled((props) => (
     />
 ))(({ theme }) => ({
     backgroundColor:
-        theme.palette.mode === 'dark'
-            ? 'rgba(255, 255, 255, .05)'
-            : 'rgba(0, 0, 0, .03)',
+        // theme.palette.mode === 'dark'
+        //     ? 'rgba(255, 255, 255, .05)'
+        //     : 
+        '#01b9e6',
     flexDirection: 'row-reverse',
+    borderRadius: '10px',
     '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
         transform: 'rotate(90deg)',
     },
@@ -45,28 +47,26 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
     borderTop: '1px solid rgba(0, 0, 0, .125)',
 }));
 
-export default function ProductAccordian() {
+export default function ProductAccordian({productProp}) {
     const [expanded, setExpanded] = React.useState('panel1');
 
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
     };
     return (
-        <>
+        <div className='p-4 md:p-2 lg:p-0 lg:mr-4'>
             <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                    <Typography>Collapsible Group Item #1</Typography>
+                    <Typography>Product</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-
                     <ul>
                         {products.map((product) =>
-                            <li className='hover:text-[#023169]'> <Link href={{
+                            <li className='my-4'> <Link href={{
                                 pathname: `/products/${product.name}`,
-                            }}  > <Typography> {product.name}   </Typography> </Link></li>
+                            }}  > <Typography className={`hover:text-[#023169] ${productProp.name === product.name ? 'text-[#023169] font-bold' : ''}`}> {product.name}   </Typography> </Link></li>
                         )}
                     </ul>
-
                 </AccordionDetails>
             </Accordion>
             {/* <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
@@ -95,6 +95,6 @@ export default function ProductAccordian() {
                     </Typography>
                 </AccordionDetails>
             </Accordion> */}
-        </>
+        </div>
     )
 }

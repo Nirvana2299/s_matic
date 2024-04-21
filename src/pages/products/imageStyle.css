@@ -1,0 +1,10 @@
+.imagesizing {
+    width: 100%;
+    height: auto;
+
+    @media (min-width: 1000px) {
+        width: 80%;
+        height: auto;
+
+    }
+}

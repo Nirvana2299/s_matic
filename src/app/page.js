@@ -19,7 +19,7 @@ export default function Home() {
         <ProductCarousel />
         <WhatWeDoSection />
         <ContactUs />
-        <h1 className="text-[#1da1f2]" >Home Page</h1>
+        {/* <h1 className="text-[#1da1f2]" >Home Page</h1> */}
       </main>
         <Footer />
     </>

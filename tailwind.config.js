@@ -9,6 +9,7 @@ module.exports = withMT({
   theme: {
     extend: {
       backgroundImage: {
+        "factory-image": "url('/images/industry.jpg')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",

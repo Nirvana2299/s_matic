@@ -134,9 +134,7 @@ export default function ProductCarousel() {
                                         <Image src={product.image} width={250} height={250} alt={product.imageAltText} />
                                         <div className="overflow-hidden text-[#023169]">
                                             <p className="text-md font-bold sm:text-xl">{product.name}</p>
-
-                                            <p className="leading-tight">
-                                                {product.shortInfo}</p>
+                                            <p className="leading-tight">{product.shortInfo}</p>
                                         </div>
                                     </div>
                                 </div>

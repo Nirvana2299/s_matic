@@ -12,9 +12,10 @@ import {
     FingerPrintIcon,
     SquaresPlusIcon,
     XMarkIcon,
+
     // PhoneIcon
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon,PhoneArrowUpRightIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon, PhoneArrowUpRightIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 
 const callsToAction = [
     { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
@@ -119,17 +120,17 @@ export default function Navbar() {
                     <Link href={{
                         pathname: `/productCatalogue`,
                     }} className={`text-md font-semibold leading-6 hover:text-[#023169] ${pathname === '/productCatalogue' ? 'text-[#023169]' : 'text-gray-900'}`}>
-                        Product
+                        Products
                     </Link>
                     <Link href={{
                         pathname: `/contactus`,
                     }} className={`text-md font-semibold leading-6 hover:text-[#023169] ${pathname === '/contactus' ? 'text-[#023169]' : 'text-gray-900'}`}>
-                        Contact Us
+                        Contact
                     </Link>
                     <Link href={{
                         pathname: `/about`,
                     }} className={`text-md font-semibold leading-6 hover:text-[#023169] ${pathname === '/about' ? 'text-[#023169]' : 'text-gray-900'}`}>
-                        About Us
+                        About
                     </Link>
                     <Link
                         href={{
@@ -213,21 +214,21 @@ export default function Navbar() {
                                     href="/productCatalogue"
                                     className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 ${pathname === '/productCatalogue' ? 'text-[#023169]' : 'text-gray-900'}`}
                                 >
-                                    Product
+                                    Products
                                 </Link>
                                 <Link
                                     onClick={() => setMobileMenuOpen(false)}
                                     href="/about"
                                     className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 ${pathname === '/about' ? 'text-[#023169]' : 'text-gray-900'}`}
                                 >
-                                    About Us
+                                    About
                                 </Link>
                                 <Link
                                     onClick={() => setMobileMenuOpen(false)}
                                     href="/contactus"
                                     className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 ${pathname === '/contactus' ? 'text-[#023169]' : 'text-gray-900'}`}
                                 >
-                                    Contact Us
+                                    Contact
                                 </Link>
 
                             </div>

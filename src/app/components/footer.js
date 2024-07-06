@@ -58,10 +58,6 @@ export default function Footer() {
                             Contact Us
                         </Link>
                     </li>
-
-                    {/* <li>
-                        <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> Blog </a>
-                    </li> */}
                 </ul>
             </div>
 

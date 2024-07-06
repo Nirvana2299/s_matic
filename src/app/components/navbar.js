@@ -12,8 +12,9 @@ import {
     FingerPrintIcon,
     SquaresPlusIcon,
     XMarkIcon,
+    // PhoneIcon
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon,PhoneArrowUpRightIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 
 const callsToAction = [
     { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
@@ -46,7 +47,17 @@ export default function Navbar() {
                         <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
                     </Link>
                 </div>
-                <div className="flex lg:hidden">
+                <div className="flex lg:hidden gap-2">
+                    <Link
+                        href={{
+                            pathname: `tel:+9112364578950`,
+                        }}
+                    >
+                        <div className='text-start flex gap-4 bg-blue-400 px-4 rounded-3xl'>
+                            <p className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white'>Call Now</p>
+                            {/* <p className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 '>+91 12364578950</p> */}
+                        </div>
+                    </Link>
                     <button
                         type="button"
                         className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -55,8 +66,9 @@ export default function Navbar() {
                         <span className="sr-only">Open main menu</span>
                         <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                     </button>
+
                 </div>
-                <Popover.Group className="hidden lg:flex lg:gap-x-12">
+                <Popover.Group className="hidden lg:flex lg:items-center lg:gap-x-12">
                     {/* <Popover className="relative">
                         <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
                             Product
@@ -119,6 +131,19 @@ export default function Navbar() {
                     }} className={`text-md font-semibold leading-6 hover:text-[#023169] ${pathname === '/about' ? 'text-[#023169]' : 'text-gray-900'}`}>
                         About Us
                     </Link>
+                    <Link
+                        href={{
+                            pathname: `tel:+9112364578950`,
+                        }}
+                    >
+                        <div className='text-start'>
+                            <p className='italic font-semibold'>Quick Sales Support</p>
+                            <div className='flex gap-2'>
+                                <PhoneArrowUpRightIcon className="h-6 w-6 text-[#023169]" aria-hidden="true" />
+                                <p className='italic font-bold text-[#023169]'>+91 12364578950</p>
+                            </div>
+                        </div>
+                    </Link>
                 </Popover.Group>
                 {/* <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                     <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
@@ -146,6 +171,7 @@ export default function Navbar() {
                             <span className="sr-only">Close menu</span>
                             <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                         </button>
+
                     </div>
                     <div className="mt-6 flow-root">
                         <div className="-my-6 divide-y divide-gray-500/10">
@@ -203,6 +229,7 @@ export default function Navbar() {
                                 >
                                     Contact Us
                                 </Link>
+
                             </div>
 
                         </div>

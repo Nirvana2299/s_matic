@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function Footer() {
     return <footer>
         <div className="relative mx-auto min-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:pt-24">
@@ -36,15 +38,25 @@ export default function Footer() {
                     className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12"
                 >
                     <li>
-                        <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> About </a>
+                        <Link href={{
+                            pathname: `/about`,
+                        }}>
+                            About
+                        </Link>
                     </li>
-
                     <li>
-                        <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> Home </a>
+                        <Link href={{
+                            pathname: `/`,
+                        }}>
+                            Home
+                        </Link >
                     </li>
-
                     <li>
-                        <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> Contact Us </a>
+                        <Link href={{
+                            pathname: `/contactus`,
+                        }}>
+                            Contact Us
+                        </Link>
                     </li>
 
                     {/* <li>

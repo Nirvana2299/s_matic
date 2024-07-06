@@ -20,16 +20,14 @@ export default function Products() {
                                             <p className="text-md font-bold sm:text-xl">{product.name}</p>
                                             <p className="leading-tight">{product.shortInfo}</p>
                                         </div>
-                                        <Link
-                                            passHref={true}
-                                            href={`https://wa.me/+919892018305?text=I'm%20interested%20in%20your%20product%20for%20sale`    
-                                            }
+                                        <a
+                                            href={`https://wa.me/+91123456789?text=I'm%20interested%20in%20your%20product%20for%20sale`}
                                         >
                                             <div className="border border-current p-2 rounded-md flex items-center gap-2 hover:text-[#25D366]">
                                                 <WhatsApp />
                                                 <p>Chat on WhatsApp</p>
                                             </div>
-                                        </Link>
+                                        </a>
                                     </div>
                                 </div>
                             )

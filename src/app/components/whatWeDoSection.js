@@ -105,7 +105,7 @@ export default function WhatWeDoSection() {
             </div>
             <div className='w-full'>
                 <h3 className='text-2xl font-bold mb-5'>Our Reach</h3>
-                <Image src='/images/globe-map.jpg' sizes='100vw' height={0} width={0} style={{ width: '100%', height: 'auto' }} />
+                <Image src='/images/globe-map.jpg' sizes='100vw' height={0} width={0} style={{ width: '100%', height: 'auto' }} alt='globe'/>
 
             </div>
         </section>

@@ -89,7 +89,7 @@ export default function ProductCarousel() {
                 slides: {
                     origin: 'auto',
                     perView: 4,
-                    spacing: 32 ,
+                    spacing: 32,
                     size: 0.10,
                 },
             },
@@ -130,17 +130,16 @@ export default function ProductCarousel() {
                         products.map((product) => (
                             <Link href={{ pathname: `/products/${product.name}` }} key={product.id}>
                                 <div className="keen-slider__slide bg-white rounded-xl shadow-md">
-                                <div className='flex flex-col items-center text-center bg-white rounded-xl p-4'>
-                                    <Image src={product.image} width={250} height={250} alt={product.imageAltText} />
+                                    <div className='flex flex-col items-center text-center bg-white rounded-xl p-4'>
+                                        <Image src={product.image} width={250} height={250} alt={product.imageAltText} />
+                                        <div className="overflow-hidden text-[#023169]">
+                                            <p className="text-md font-bold sm:text-xl">{product.name}</p>
 
-                                    <div className="overflow-hidden text-[#023169]">
-                                        <p className="text-md font-bold sm:text-xl">{product.name}</p>
-
-                                        <p className="leading-tight">
-                                            {product.shortInfo}</p>
+                                            <p className="leading-tight">
+                                                {product.shortInfo}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             </Link>
                         ))
                     }

@@ -39,10 +39,10 @@ export default function Page({ product }) {
                     <ProductDescription product={{ name: product.name, productsDescription: product.productsDescription }} />
                     <Image className='p-4 md:p-2 lg:p-0' src={product.image} width={400}
                         height={300}
-                        // sizes="100vw"
-                        // style={{ width: '90%', height: '90%' }} 
+                    // sizes="100vw"
+                    // style={{ width: '90%', height: '90%' }} 
 
-                        />
+                    />
                 </section>
             </main>
             <Footer />

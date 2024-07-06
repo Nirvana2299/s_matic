@@ -3,9 +3,8 @@ import Navbar from "../components/navbar";
 import aboutData from "@/utils/aboutData";
 
 export default function Page() {
-    console.log(aboutData);
     return <>
-        <Navbar />
+        {/* <Navbar /> */}
         <main className="h-full w-full text-start md:text-justify">
             <section before='' className='relative min-h-[450px] w-full before:content-[attr(before)] before:bg-bottom before:bg-factory-image before:absolute before:inset-x-0 before:inset-y-0 before:brightness-50 text-white bg-bottom flex justify-center lg:justify-start items-center'>
                 <div className='relative flex items-center lg:w-[1200px] mx-auto'>
@@ -48,6 +47,6 @@ export default function Page() {
                 </div>
             </section>
         </main>
-        <Footer />
+        {/* <Footer /> */}
     </>
 }

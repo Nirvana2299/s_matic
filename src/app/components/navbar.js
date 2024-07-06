@@ -99,6 +99,11 @@ export default function Navbar() {
                         Home
                     </Link>
                     <Link href={{
+                        pathname: `/productCatalogue`,
+                    }} className="text-sm font-semibold leading-6 text-gray-900 hover:text-violet-600">
+                        Product
+                    </Link>
+                    <Link href={{
                         pathname: `/contactus`,
                     }} className="text-sm font-semibold leading-6 text-gray-900 hover:text-violet-600">
                         Contact Us
@@ -170,6 +175,13 @@ export default function Navbar() {
                                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
                                     Home
+                                </Link>
+                                <Link
+                                
+                                    href="/productCatalogue"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                >
+                                    Product
                                 </Link>
                                 <Link
                                     href="/about"

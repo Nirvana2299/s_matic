@@ -6,7 +6,7 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-import products from './../../../utils/productsData';
+import products from '../../../utils/productsData';
 import Link from 'next/link';
 
 const Accordion = styled((props) => (
@@ -48,14 +48,14 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export default function ProductAccordian({ productProp }) {
-    const [expanded, setExpanded] = React.useState('panel1');
+    const [expanded, setExpanded] = React.useState(productProp.category);
 
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
     };
     return (
-        <div className='p-4 md:p-2 lg:p-0 lg:mr-4 flex flex-col gap-4'>
-            {productProp.prod.map((e, i) => <Accordion key={i} expanded={expanded === `panel${i + 1}`} onChange={handleChange(`panel${i+1}`)}>
+        <div className='p-4 md:p-2 lg:p-0 lg:ml-4 flex flex-col gap-4'>
+            {productProp.prod.map((e, i) => <Accordion key={i} expanded={expanded === e.categoryName} onChange={handleChange(e.categoryName)}>
                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
                     <Typography>{e.categoryName}</Typography>
                 </AccordionSummary>
@@ -63,9 +63,9 @@ export default function ProductAccordian({ productProp }) {
                     <ul>
                         {e.products.map((product) =>
                             <li className='my-4'> <Link href={{
-                                pathname: `/products/${product.name}`,
+                                pathname: `/products/${e.categoryName.toLowerCase().replace(/\s+/g, '-')}/${product.name}`,
                             }}  >
-                                <Typography className={`hover:text-[#023169] `}>
+                                <Typography className={`hover:text-[#023169] ${productProp.category.toLowerCase().replace(/\s+/g, '-') === e.categoryName.toLowerCase().replace(/\s+/g, '-') && productProp.product.name === product.name ? 'text-[#023169] font-bold' : ''}`}>
                                     {product.name}
                                 </Typography>
                             </Link>

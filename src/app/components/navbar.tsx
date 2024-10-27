@@ -85,9 +85,9 @@ export default function Navbar() {
                         >
                             <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-2xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
                                 <div className="p-4 flex gap-4">
-                                    {prod.map((item, i) => (
+                                    {prod.map((e, i) => (
                                         <div key={i} className='flex-col  min-w-36'>
-                                            <p>{item.categoryName}</p>
+                                            <p>{e.categoryName}</p>
                                             <div className='bg-gray-300 h-px w-full'></div>
                                             {prod[i].products.map((item) => <div
                                                 key={item.name}
@@ -98,7 +98,7 @@ export default function Navbar() {
                                             </div> */}
                                                 <div className="flex-auto">
                                                     <Link href={{
-                                                        pathname: `/products/${item.name}`,
+                                                        pathname: `/products/${e.categoryName.toLowerCase().replace(/\s+/g, '-')}/${item.name}`,
                                                     }}
                                                         className="block font-semibold text-gray-900">
                                                         {item.name}
@@ -192,14 +192,14 @@ export default function Navbar() {
                                             </Disclosure.Button>
                                             <Disclosure.Panel className="mt-2 space-y-2">
                                                 {/* {[...products,].map((item) => ( */}
-                                                    <Disclosure.Button
-                                                
-                                                        as="a"
-                                                        // href={`products/${item.name}`}
-                                                        className="block rounded-lg  pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                                    >
-                                                        {/* <Link href={{ pathname: `/products/${item.name}` }}><a onClick={onClick}>{item.name}</a> </Link> */}
-                                                    </Disclosure.Button>
+                                                <Disclosure.Button
+
+                                                    as="a"
+                                                    // href={`products/${item.name}`}
+                                                    className="block rounded-lg  pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                                >
+                                                    {/* <Link href={{ pathname: `/products/${item.name}` }}><a onClick={onClick}>{item.name}</a> </Link> */}
+                                                </Disclosure.Button>
 
                                                 {/* ))} */}
                                                 {prod.map((e, i) => <Disclosure as="div" className="mx-4">
@@ -220,7 +220,7 @@ export default function Navbar() {
                                                                         // href={`products/${item.name}`}
                                                                         className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                                                     >
-                                                                        <Link href={{ pathname: `/products/${item.name}` }}><a onClick={onClick}>{item.name}</a> </Link>
+                                                                        <Link href={{ pathname: `/products/${e.categoryName.toLowerCase().replace(/\s+/g, '-')}/${item.name}` }}><a onClick={onClick}>{item.name}</a> </Link>
                                                                     </Disclosure.Button>
 
                                                                 ))}

@@ -3,9 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link'
 import { useState } from 'react';
 import { useKeenSlider } from "keen-slider/react"
-import products from '@/utils/productsData';
+import products from './../../utils/productsData';
 import "keen-slider/keen-slider.min.css"
-import '@/app/globals.css'
+import './../../app/globals.css'
 
 
 export default function ProductCarousel() {

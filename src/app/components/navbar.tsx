@@ -1,6 +1,6 @@
 "use client"
-import products from '@/utils/productsData'
 import Link from 'next/link'
+import products, { prod } from './../../utils/productsData'
 import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import { usePathname } from 'next/navigation'
@@ -44,21 +44,19 @@ export default function Navbar() {
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 " aria-label="Global">
                 <div className="flex lg:flex-1">
                     <Link href={{ pathname: '/' }} className="-m-1.5 p-1.5">
-                        <span className="sr-only">Your Company</span>
-                        <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+                        <span className="text-[#023169] text-xl font-bold">Leak Free Seals</span>
+                        {/* <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" /> */}
                     </Link>
                 </div>
                 <div className="flex lg:hidden gap-2">
-                    <Link
-                        href={{
-                            pathname: `tel:+9112364578950`,
-                        }}
+                    <a
+                        href={`tel:+9112364578950`}
                     >
-                        <div className='text-start flex gap-4 bg-blue-400 px-4 rounded-3xl'>
+                        <div className='text-start flex gap-4 bg-[#023169] px-4 rounded-3xl'>
                             <p className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white'>Call Now</p>
                             {/* <p className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 '>+91 12364578950</p> */}
                         </div>
-                    </Link>
+                    </a>
                     <button
                         type="button"
                         className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -70,13 +68,13 @@ export default function Navbar() {
 
                 </div>
                 <Popover.Group className="hidden lg:flex lg:items-center lg:gap-x-12">
-                    {/* <Popover className="relative">
-                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+                    <Popover className="relative">
+                        <Popover.Button className="flex items-center gap-x-1 text-md font-semibold leading-6 text-gray-900">
                             Product
                             <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-                        </Popover.Button> */}
+                        </Popover.Button>
 
-                    {/* <Transition
+                        <Transition
                             as={Fragment}
                             enter="transition ease-out duration-200"
                             enterFrom="opacity-0 translate-y-1"
@@ -84,33 +82,38 @@ export default function Navbar() {
                             leave="transition ease-in duration-150"
                             leaveFrom="opacity-100 translate-y-0"
                             leaveTo="opacity-0 translate-y-1"
-                        > */}
-                    {/* <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
-                                <div className="p-4">
-                                    {products.map((item) => (
-                                        <div
-                                            key={item.name}
-                                            className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
-                                        > */}
-                    {/* <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                        >
+                            <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-2xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
+                                <div className="p-4 flex gap-4">
+                                    {prod.map((item, i) => (
+                                        <div key={i} className='flex-col  min-w-36'>
+                                            <p>{item.categoryName}</p>
+                                            <div className='bg-gray-300 h-px w-full'></div>
+                                            {prod[i].products.map((item) => <div
+                                                key={item.name}
+                                                className="group relative flex items-center gap-x-6 rounded-lg py-4 text-sm leading-6 hover:bg-gray-50"
+                                            >
+                                                {/* <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                                 <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                                             </div> */}
-                    {/* <div className="flex-auto">
-                                                <Link href={{
-                                                    pathname: `/products/${item.name}`,}} 
-                                                    className="block font-semibold text-gray-900">
-                                                    {item.name}
-                                                    <span className="absolute inset-0" />
-                                                </Link> */}
-                    {/* <p className="mt-1 text-gray-600">{item.description}</p> */}
-                    {/* </div> */}
-                    {/* </div> */}
-                    {/* ))} */}
-                    {/* </div> */}
+                                                <div className="flex-auto">
+                                                    <Link href={{
+                                                        pathname: `/products/${item.name}`,
+                                                    }}
+                                                        className="block font-semibold text-gray-900">
+                                                        {item.name}
+                                                        <span className="absolute inset-0" />
+                                                    </Link>
+                                                    {/* <p className="mt-1 text-gray-600">{item.name}</p> */}
+                                                </div>
+                                            </div>)}
+                                        </div>
+                                    ))}
+                                </div>
 
-                    {/* </Popover.Panel>
+                            </Popover.Panel>
                         </Transition>
-                    </Popover> */}
+                    </Popover>
 
                     <Link href={{
                         pathname: `/`,
@@ -177,31 +180,58 @@ export default function Navbar() {
                     <div className="mt-6 flow-root">
                         <div className="-my-6 divide-y divide-gray-500/10">
                             <div className="space-y-2 py-6">
-                                {/* <Disclosure as="div" className="-mx-3">
+                                <Disclosure as="div" className="-mx-3">
                                     {({ open }) => (
                                         <>
                                             <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                                                Product
+                                                Products
                                                 <ChevronDownIcon
                                                     className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
                                                     aria-hidden="true"
                                                 />
                                             </Disclosure.Button>
                                             <Disclosure.Panel className="mt-2 space-y-2">
-                                                {[...products, ...callsToAction].map((item) => (
+                                                {/* {[...products,].map((item) => ( */}
                                                     <Disclosure.Button
-                                                        key={item.name}
+                                                
                                                         as="a"
                                                         // href={`products/${item.name}`}
-                                                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                                        className="block rounded-lg  pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                                     >
-                                                        <Link href={{ pathname: `/products/${item.name}` }}><a onClick={onClick}>{item.name}</a> </Link>   
+                                                        {/* <Link href={{ pathname: `/products/${item.name}` }}><a onClick={onClick}>{item.name}</a> </Link> */}
                                                     </Disclosure.Button>
-                                                ))}
+
+                                                {/* ))} */}
+                                                {prod.map((e, i) => <Disclosure as="div" className="mx-4">
+                                                    {({ open }) => (
+                                                        <>
+                                                            <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                                                {e.categoryName}
+                                                                <ChevronDownIcon
+                                                                    className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
+                                                                    aria-hidden="true"
+                                                                />
+                                                            </Disclosure.Button>
+                                                            <Disclosure.Panel className="mt-2 space-y-2">
+                                                                {[...e.products,].map((item) => (
+                                                                    <Disclosure.Button
+                                                                        key={item.name}
+                                                                        as="a"
+                                                                        // href={`products/${item.name}`}
+                                                                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                                                    >
+                                                                        <Link href={{ pathname: `/products/${item.name}` }}><a onClick={onClick}>{item.name}</a> </Link>
+                                                                    </Disclosure.Button>
+
+                                                                ))}
+                                                            </Disclosure.Panel>
+                                                        </>
+                                                    )}
+                                                </Disclosure>)}
                                             </Disclosure.Panel>
                                         </>
                                     )}
-                                </Disclosure> */}
+                                </Disclosure>
                                 <Link
                                     onClick={() => setMobileMenuOpen(false)}
                                     href="/"

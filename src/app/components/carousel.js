@@ -2,31 +2,37 @@
 import { Carousel, Typography, Button } from "@material-tailwind/react";
 import './../../app/globals.css'
 import Link from 'next/link'
+import Image from 'next/image'
+
+import img1 from  './../../../public/images/carousel_images/carousel_image_1.avif'
+import img2 from './../../../public/images/carousel_images/c_i_2.jpg'
+import img3 from './../../../public/images/carousel_images/i_c_3jpg.jpg'
+import img4 from './../../../public/images/carousel_images/c_i_4.avif'
 
 const carouselData = [
+    {
+        id: 3,
+        title: 'High Quality Manufacturing Processes',
+        discription: 'From know how to designing, production, testing and the final delivery with utmost priority given to the quality standards.',
+        imageUrl: img3,
+    },
     {
         id: 1,
         title: 'Global Sales and Services',
         discription: 'Our aim at Sealmatic is to ensure utmost satisfaction of our customers where we ensure international quality and close proximity.',
-        imageUrl: 'https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80'
+        imageUrl: img1
     },
     {
         id: 2,
         title: 'Long Standing Experience',
         discription: 'Our collective knowledge of many years in the sealing industry has helped us create programs that can solve any sealing questions at the click of a button.',
-        imageUrl: 'https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80'
-    },
-    {
-        id: 3,
-        title: 'High Quality Manufacturing Processes',
-        discription: 'From know how to designing, production, testing and the final delivery with utmost priority given to the quality standards.',
-        imageUrl: 'https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80'
+        imageUrl: img2
     },
     {
         id: 4,
         title: 'Our Legacy',
         discription: 'At Sealmatic we care. We ensure that we make each of our production processes safe for our employees and our environment.',
-        imageUrl: 'https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80'
+        imageUrl: img4
     }
 ]
 
@@ -35,20 +41,26 @@ const carouselData = [
 export default function CarouselSlider() {
 
     return (
-        <section id="carousel">
+        <section id="carousel" className="w-full">
             <Carousel
+             className="w-full relative"
                 autoplay={true}
-
                 autoplayDelay={6000}
                 transition={{ transition: { type: "spring", duration: 10.5 } }}
                 loop={true}
+                draggable={true}
+                style={{width: '100%'}}
             >
                 {
 
                     carouselData.map((c) =>
 
                         <div key={c.id} className="relative h-[1000px] max-h-96 w-full overflow-hidden">
-                            <img
+                            <Image
+                                width={0}
+                                height={0}
+                                sizes="100vw"
+                                objectFit="cover"
                                 src={c.imageUrl}
                                 alt={`image ${c.id}`}
                                 className="w-full h-full object-cover"

@@ -27,7 +27,7 @@ export default function Footer() {
 
             <div className="lg:flex lg:items-end lg:justify-between">
                 <div>
-                    <p className="font-bold text-xl text-[#023169] md:text-2xl lg:text-3xl">Company Name</p>
+                    <p className="font-bold text-xl text-[#023169] md:text-2xl lg:text-3xl">Leak Free Seals</p>
                     <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 lg:text-left">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt consequuntur amet culpa
                         cum itaque neque.

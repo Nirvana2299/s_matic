@@ -7,6 +7,7 @@ import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
+import Reveal from './../../utils/reveal'
 
 
 const Accordion = styled((props) => (
@@ -56,10 +57,10 @@ export default function WhatWeDoSection() {
     return (
         <section className="flex flex-col lg:flex lg:flex-row justify-center items-start px-4 md:px-16 lg:px-20 py-10 xl:w-[1170px] lg:mx-auto overflow-hidden">
             <div className='lg:w-3/4 lg:mr-4 mb-10 lg:mb-0'>
-                <div>
-                <div>
-                    <h3 className='text-2xl font-bold mb-5'>What We Do</h3>
-                </div>
+                <Reveal slideFromSide={true}>
+                    <div>
+                        <h3 className='text-2xl font-bold mb-5'>What We Do</h3>
+                    </div>
                     <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
                             <Typography>Collapsible Group Item #1</Typography>
@@ -99,15 +100,17 @@ export default function WhatWeDoSection() {
                             </Typography>
                         </AccordionDetails>
                     </Accordion>
+                </Reveal>
+
+
+            </div>
+            <Reveal>
+                <div className='w-full'>
+                    <h3 className='text-2xl font-bold mb-5'>Our Reach</h3>
+                    <Image src='/images/globe-map.jpg' sizes='100vw' height={0} width={0} style={{ width: '100%', height: 'auto' }} alt='globe' />
+
                 </div>
-
-
-            </div>
-            <div className='w-full'>
-                <h3 className='text-2xl font-bold mb-5'>Our Reach</h3>
-                <Image src='/images/globe-map.jpg' sizes='100vw' height={0} width={0} style={{ width: '100%', height: 'auto' }} alt='globe'/>
-
-            </div>
+            </Reveal>
         </section>
     );
 }

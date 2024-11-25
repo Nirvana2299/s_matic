@@ -16,6 +16,7 @@ import {
     // PhoneIcon
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneArrowUpRightIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { motion } from 'framer-motion'
 
 const callsToAction = [
     { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
@@ -40,7 +41,12 @@ export default function Navbar() {
     }, [pathname])
 
     return (
-        <header className="z-10 bg-white sticky left-0 right-0 top-0">
+        <motion.header
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.35 }}
+            className="z-10 bg-white sticky left-0 right-0 top-0"
+        >
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 " aria-label="Global">
                 <div className="flex lg:flex-1">
                     <Link href={{ pathname: '/' }} className="-m-1.5 p-1.5">
@@ -267,6 +273,6 @@ export default function Navbar() {
                     </div>
                 </Dialog.Panel>
             </Dialog>
-        </header>
+        </motion.header>
     )
 }

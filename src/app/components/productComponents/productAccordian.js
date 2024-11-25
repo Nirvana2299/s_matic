@@ -54,7 +54,7 @@ export default function ProductAccordian({ productProp }) {
         setExpanded(newExpanded ? panel : false);
     };
     return (
-        <div className='p-4 md:p-2 lg:p-0 lg:ml-4 flex flex-col gap-4'>
+        <div className='p-4 md:p-2 lg:p-0 flex flex-col gap-4'>
             {productProp.prod.map((e, i) => <Accordion key={i} expanded={expanded === e.categoryName} onChange={handleChange(e.categoryName)}>
                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
                     <Typography>{e.categoryName}</Typography>

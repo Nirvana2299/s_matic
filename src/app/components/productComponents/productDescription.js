@@ -23,14 +23,16 @@ export default function ProductDescription({ product }) {
         <div>
             <p>{product.description}</p>
         </div>
-        <div className="flex flex-col gap-4">
-            <Button className=" h-10" variant="contained">
+        <div className="flex flex-col gap-4 items-start">
+            <div className="flex flex-col lg:w-[50%] self-stretch gap-2">
+            <Button className="h-10" variant="contained">
                 <div className="flex items-center justify-center h-full">
                     <p className="text-center self-center">{`Enquiry `}</p>
                     <WhatsApp />
                 </div>
             </Button>
-            <Button variant="contained">Download catalogue</Button>
+                <Button className="h-10" variant="contained">Download catalogue</Button>
+        </div>
         </div>
     </div>
 }

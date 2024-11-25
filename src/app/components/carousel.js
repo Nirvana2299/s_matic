@@ -3,6 +3,7 @@ import { Carousel, Typography, Button } from "@material-tailwind/react";
 import './../../app/globals.css'
 import Link from 'next/link'
 import Image from 'next/image'
+import { motion, useInView } from 'framer-motion'
 
 import img1 from  './../../../public/images/carousel_images/carousel_image_1.avif'
 import img2 from './../../../public/images/carousel_images/c_i_2.jpg'
@@ -41,6 +42,11 @@ const carouselData = [
 export default function CarouselSlider() {
 
     return (
+        <motion.div className="bb ze ki xn 2xl:ud-px-0"
+            transition={{ type: 'inertia', velocity: 120, duration: 0.4, delay: 0.2 }}
+            animate={{ x: 0, opacity: 1 }}
+            initial={{ x: -100, opacity: 0 }}
+        >
         <section id="carousel" className="w-full">
             <Carousel
              className="w-full relative"
@@ -97,5 +103,6 @@ export default function CarouselSlider() {
                     )}
             </Carousel>
         </section>
+        </motion.div>
     );
 }

@@ -6,6 +6,7 @@ import { useKeenSlider } from "keen-slider/react"
 import products from './../../utils/productsData';
 import "keen-slider/keen-slider.min.css"
 import './../../app/globals.css'
+import Reveal from '../../utils/reveal';
 
 
 export default function ProductCarousel() {
@@ -115,91 +116,98 @@ export default function ProductCarousel() {
     return (
         <section className="bg-[#023169] w-full flex-col items-center justify-center py-10">
             <div className=" text-center flex flex-col items-center">
-                <h2 className="text-xl text-white font-bold tracking-tight text-gray-900 sm:text-3xl">
-                    FEATURED PRODUCTS
-                </h2>
-                <div className='mt-2 h-[4px] w-10 bg-[#01b9e6] rounded-xl'>
+                <Reveal slideFromSide={true}>
+                    <h2 className="text-xl text-white font-bold tracking-tight text-gray-900 sm:text-3xl">
+                        FEATURED PRODUCTS
+                    </h2>
+                </Reveal>
+                <Reveal>
+                    <div className='mt-2 h-[4px] w-10 bg-[#01b9e6] rounded-xl'>
 
-                </div>
+                    </div>
+                </Reveal>
             </div>
+            <Reveal slideFromSide={true}>
+                <div className="w-auto mt-8 mx-4 md:mx-44 lg:mx-40 xl:mx-40 2xl:mx-52 flex justify-between items-center">
+                    <div ref={sliderRef} id="keen-slider" className="keen-slider">
 
-            <div className="w-auto mt-8 mx-4 md:mx-44 lg:mx-40 xl:mx-40 2xl:mx-52 flex justify-between items-center">
-                <div ref={sliderRef} id="keen-slider" className="keen-slider">
-
-                    {
-                        products.map((product) => (
-                            <Link href={{ pathname: `/products/${product.name}` }} key={product.id}>
-                                <div className="keen-slider__slide bg-white rounded-xl shadow-md">
-                                    <div className='flex flex-col items-center text-center bg-white rounded-xl p-4'>
-                                        <Image src={product.image} width={250} height={250} alt={product.imageAltText} />
-                                        <div className="overflow-hidden text-[#023169]">
-                                            <p className="text-md font-bold sm:text-xl">{product.name}</p>
-                                            <p className="leading-tight">{product.shortInfo}</p>
+                        {
+                            products.map((product) => (
+                                <Link href={{ pathname: `/products/${product.name}` }} key={product.id}>
+                                    <div className="keen-slider__slide bg-white rounded-xl shadow-md">
+                                        <div className='flex flex-col items-center text-center bg-white rounded-xl p-4'>
+                                            <Image src={product.image} width={250} height={250} alt={product.imageAltText} />
+                                            <div className="overflow-hidden text-[#023169]">
+                                                <p className="text-md font-bold sm:text-xl">{product.name}</p>
+                                                <p className="leading-tight">{product.shortInfo}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </Link>
-                        ))
-                    }
+                                </Link>
+                            ))
+                        }
 
 
 
 
 
 
+                    </div>
                 </div>
-            </div>
+            </Reveal>
             {loaded && instanceRef.current && (
-                <div className="mt-8 mx-20 flex gap-4 lg:mt-12  flex justify-around items-center">
-                    <button
-                        onClick={(e) =>
-                            e.stopPropagation() || instanceRef.current?.prev()
-                        }
-                        disabled={currentSlide === 0}
-                        aria-label="Previous slide"
-                        id="keen-slider-previous"
-                        className="rounded-full border bg-white p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="black"
-                            className="size-5 rtl:rotate-180"
+                <Reveal slideFromSide={true}>
+                    <div className="mt-8 mx-20 flex gap-4 lg:mt-12  flex justify-around items-center">
+                        <button
+                            onClick={(e) =>
+                                e.stopPropagation() || instanceRef.current?.prev()
+                            }
+                            disabled={currentSlide === 0}
+                            aria-label="Previous slide"
+                            id="keen-slider-previous"
+                            className="rounded-full border bg-white p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
                         >
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                        </svg>
-                    </button>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth="1.5"
+                                stroke="black"
+                                className="size-5 rtl:rotate-180"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                            </svg>
+                        </button>
 
-                    <button
-                        onClick={(e) =>
-                            e.stopPropagation() || instanceRef.current?.next()
-                        }
-                        // disabled={
-                        //     currentSlide ===
-                        //     instanceRef.current.track.details.slides.length - 1
-                        // }
-                        aria-label="Next slide"
-                        id="keen-slider-next"
-                        className="rounded-full border bg-white p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
-                    >
-                        <svg
-                            className="size-5 rtl:rotate-180"
-                            fill="none"
-                            stroke="black"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
+                        <button
+                            onClick={(e) =>
+                                e.stopPropagation() || instanceRef.current?.next()
+                            }
+                            // disabled={
+                            //     currentSlide ===
+                            //     instanceRef.current.track.details.slides.length - 1
+                            // }
+                            aria-label="Next slide"
+                            id="keen-slider-next"
+                            className="rounded-full border bg-white p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
                         >
-                            <path
-                                d="M9 5l7 7-7 7"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                            />
-                        </svg>
-                    </button>
-                </div>
+                            <svg
+                                className="size-5 rtl:rotate-180"
+                                fill="none"
+                                stroke="black"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M9 5l7 7-7 7"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                </Reveal>
             )}
         </section>
     )

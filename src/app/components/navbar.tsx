@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link'
 import products, { prod } from './../../utils/productsData'
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import { usePathname } from 'next/navigation'
 import {
@@ -12,7 +12,8 @@ import {
     FingerPrintIcon,
     SquaresPlusIcon,
     XMarkIcon,
-
+    ChevronRightIcon,
+    ArrowUpRightIcon
     // PhoneIcon
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneArrowUpRightIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
@@ -37,8 +38,6 @@ export default function Navbar() {
 
 
     const pathname = usePathname();
-    useEffect(() => {
-    }, [pathname])
 
     return (
         <motion.header
@@ -89,30 +88,58 @@ export default function Navbar() {
                             leaveFrom="opacity-100 translate-y-0"
                             leaveTo="opacity-0 translate-y-1"
                         >
-                            <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-2xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
-                                <div className="p-4 flex gap-4">
+                            <Popover.Panel className="absolute -left-8 z-10 mt-3 min-w-80 rounded-lg bg-white shadow-lg ring-1 ring-gray-900/5">
+                                <div className="p-4 flex flex-col gap-4">
                                     {prod.map((e, i) => (
-                                        <div key={i} className='flex-col  min-w-36'>
-                                            <p>{e.categoryName}</p>
-                                            <div className='bg-gray-300 h-px w-full'></div>
-                                            {prod[i].products.map((item) => <div
-                                                key={item.name}
-                                                className="group relative flex items-center gap-x-6 rounded-lg py-4 text-sm leading-6 hover:bg-gray-50"
-                                            >
-                                                {/* <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                                <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
-                                            </div> */}
-                                                <div className="flex-auto">
-                                                    <Link href={{
-                                                        pathname: `/products/${e.categoryName.toLowerCase().replace(/\s+/g, '-')}/${item.name}`,
-                                                    }}
-                                                        className="block font-semibold text-gray-900">
-                                                        {item.name}
-                                                        <span className="absolute inset-0" />
-                                                    </Link>
-                                                    {/* <p className="mt-1 text-gray-600">{item.name}</p> */}
-                                                </div>
-                                            </div>)}
+                                        <div key={i} className=''>
+                                            <Popover.Group className="hidden w-full lg:flex lg:items-center lg:gap-x-12">
+                                                <Popover className=" w-full">
+                                                    {({ open }) => (
+                                                        <>
+                                                            <Popover.Button className='w-full'>
+                                                                <div className='flex w-full justify-between items-center'>
+                                                                    <p className={classNames(open ? 'text-[#023169]' : '', 'transition-all')}>{e.categoryName}</p>
+                                                                    <ChevronRightIcon className={classNames(open ? 'rotate-180' : '', 'transition-all h-5 w-5 flex-none')} />
+                                                                </div>
+                                                            </Popover.Button >
+
+                                                            <Transition
+                                                                as={Fragment}
+                                                                enter="transition ease-out duration-200"
+                                                                enterFrom="opacity-0 -translate-x-1"
+                                                                enterTo="opacity-100 translate-x-0"
+                                                                leave="transition ease-in duration-150"
+                                                                leaveFrom="opacity-100 translate-x-0"
+                                                                leaveTo="opacity-0 translate-x-1"
+                                                            >
+                                                                {/* <div className='bg-gray-300 h-px w-full'></div> */}
+                                                                <Popover.Panel className="absolute top-0 left-80 z-20 ml-3 min-w-80 rounded-lg bg-white shadow-lg ring-1 ring-gray-900/5">
+                                                                    <div className="p-2 flex flex-col">
+                                                                        {prod[i].products.map((item) => <div
+                                                                            key={item.name}
+                                                                            className="group relative flex items-center gap-x-4 rounded-md px-2 py-2 text-sm hover:bg-gray-100 hover:text-[#023169]"
+                                                                        >
+                                                                            <div className="flex-auto ">
+                                                                                <div className='flex justify-between items-center'>
+                                                                                    <Link href={{
+                                                                                        pathname: `/products/${e.categoryName.toLowerCase().replace(/\s+/g, '-')}/${item.name}`,
+                                                                                    }}
+                                                                                        className="block hover:text-[#023169] leading-6 text-md text-gray-900">
+                                                                                        {item.name}
+                                                                                        <span className="absolute inset-0" />
+                                                                                    </Link>
+                                                                                    <ArrowUpRightIcon className=' h-5 w-5'/>
+                                                                                </div>
+                                                                                {/* <div className='bg-gray-300 h-px w-full'></div> */}
+                                                                            </div>
+                                                                        </div>)}
+                                                                    </div>
+                                                                </Popover.Panel >
+                                                            </Transition>
+                                                        </>
+                                                    )}
+                                                </Popover>
+                                            </Popover.Group>
                                         </div>
                                     ))}
                                 </div>
@@ -192,7 +219,7 @@ export default function Navbar() {
                                             <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                                                 Products
                                                 <ChevronDownIcon
-                                                    className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
+                                                    className={classNames(open ? 'rotate-180' : '', 'transition-all h-5 w-5 flex-none')}
                                                     aria-hidden="true"
                                                 />
                                             </Disclosure.Button>
@@ -214,7 +241,7 @@ export default function Navbar() {
                                                             <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                                                                 {e.categoryName}
                                                                 <ChevronDownIcon
-                                                                    className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
+                                                                    className={classNames(open ? 'rotate-180' : '', 'transition-all h-5 w-5 flex-none')}
                                                                     aria-hidden="true"
                                                                 />
                                                             </Disclosure.Button>

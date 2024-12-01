@@ -60,18 +60,19 @@ export default function ProductAccordian({ productProp }) {
                     <Typography>{e.categoryName}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <ul>
-                        {e.products.map((product) =>
-                            <li className='my-4'> <Link href={{
+                    {/* <ul> */}
+                        {e.products.map((product, index) =>
+                         
+                             <Link key={index} href={{
                                 pathname: `/products/${e.categoryName.toLowerCase().replace(/\s+/g, '-')}/${product.name}`,
                             }}  >
                                 <Typography className={`hover:text-[#023169] ${productProp.category.toLowerCase().replace(/\s+/g, '-') === e.categoryName.toLowerCase().replace(/\s+/g, '-') && productProp.product.name === product.name ? 'text-[#023169] font-bold' : ''}`}>
                                     {product.name}
                                 </Typography>
                             </Link>
-                            </li>
+                      
                         )}
-                    </ul>
+                    {/* </ul> */}
                 </AccordionDetails>
             </Accordion>)}
             {/* ${productProp.name === product.name ? 'text-[#023169] font-bold' : ''} */}
